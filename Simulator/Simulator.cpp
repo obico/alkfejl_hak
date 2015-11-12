@@ -18,14 +18,24 @@ void Simulator::start(float intervalSec)
     state.setV(0.0F);
     state.setA(0.0F);
     state.setLight(0);
+    QVector<int> gtemp;
+    gtemp.append(0);
+    gtemp.append(0);
+    state.setG(gtemp);
     timer.start((long)(intervalSec*1000.0F));
 }
 
 void Simulator::tick()
 {
+
+    QVector<int> gtemp;
+    gtemp.append(qrand() % 2 -qrand() % 2);
+    gtemp.append(state.a()*10);
+    state.setG(gtemp);
     // Fizikai szimuláció
     state.setTimestamp(state.timestamp() + dt);
     state.setX(state.x() + state.v()*dt);
+
     state.setV(state.v() + state.a()*dt);
 
     if (state.v()<-10.0)
@@ -94,7 +104,9 @@ void Simulator::tick()
              << ", x=" << state.x()
              << ", v=" << state.v()
              << ", a=" << state.a()
+             << ", g=" << state.g()
              << ", lámpa:" << state.light();
+
 
     // Állapot küldése
     if (communication.isConnected())

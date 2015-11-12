@@ -2,9 +2,10 @@ import QtQuick 2.0
 import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.1
 
+
 Item {
     width: 500
-    height: 500
+    height: 520
     anchors.fill: parent
 
     // Signalok, melyek a kiadott parancsokat jelzik és a nyomógombok
@@ -21,6 +22,7 @@ Item {
         anchors.left : parent.left
         anchors.top : parent.top
         width: 200
+        height: 123
 
         // A nyomógombokat oszlopba rendezzük
         ColumnLayout {
@@ -65,6 +67,7 @@ Item {
     // Aktuális értékek elemcsoportja
     GroupBox {
         id: currentValuesGB
+        height: 338
         title: "Pillanatnyi értékek"
         // Fent és jobbra kitölti a szülőt. Balról illeszkedik a
         //  parancsok GroupBox-ának jobb széléhez.
@@ -84,12 +87,44 @@ Item {
             //  értékétől függ. (Ha az értéke null, akkor "?" jelenik meg.)
             // A currentState-et a MainWindowsEventHandling::historyChanged metódus regisztrálja be, hogy
             //  látható legyen a QML oldalról is. (Hivatkozás a RobotStateHistory::currentState-re.)
+
             Text { text: " Állapot: " + (currentState!=null ? currentState.statusName : "?") }
             Text { text: " Idő: " + (currentState!=null ? currentState.timestamp : "?") }
             Text { text: " X: " + (currentState!=null ? currentState.x.toFixed(3) : "?") }
             Text { text: " V: " + (currentState!=null ? currentState.v.toFixed(3) : "?") }
             Text { text: " A: " + (currentState!=null ? currentState.a.toFixed(3) : "?") }
+           // Text { text: " G: " + (currentstate!=null ? currentState.g : "?") }
             Text { text: " Lámpa: " + (currentState!=null ? currentState.light.toString() : "?") }
+
+            GroupBox {
+                id: groupBox1
+                width: 360
+                height: 300
+                title: qsTr("Gyroszkóp")
+
+                VectorGraph {
+                    id: vectorGraph
+                    x: 0
+                    width: 150
+                    height: 150
+                    // Az objectName akkor jó, ha C++ oldalról kell megkeresnünk egy QML oldalon definiált
+                    //  objektumot a findChild metódus rekurzív hívásaival.
+                    objectName: "vectorGraph"
+
+
+                    // Ezek pedig a HistoryGraph tulajdonságai, amiket majd ott definiálunk,
+                    //  itt pedig értéket adunk nekik. Az alábbi változókat (pl. historyGraphTimestamps)
+                    //  szintén a MainWindowsEventHandling::historyChanged metódus teszi elérhetővé
+                    //  a QML oldal számára.
+                    // Ezek az értékek C++ oldalon folyamatosan változnak. Minden változás esetén
+                    //  lefut a MainWindowsEventHandling::historyChanged és ezeket újraregisztrálja a QML
+                    //  oldal számára, így frissülni fog a HistoryGraph tulajdonság is.
+                    graphTimestamps: historyGraphTimestamps
+                    graphVelocities: historyGraphVelocity
+                    graphAccelerations: historyGraphAcceleration
+                    graphGyro: historyGraphGyro
+                }
+            }
         }
     }
 
@@ -105,6 +140,7 @@ Item {
             Text { text: " X: " + model.x.toFixed(3) }
             Text { text: " V: " + model.v.toFixed(3) }
             Text { text: " A: " + model.a.toFixed(3) }
+            //Text { text: " G: " + model.g}
         }
     }
 
@@ -125,11 +161,19 @@ Item {
 
         // Sorban egymás mellett van a lista és a grafikon
         RowLayout {
+            id: rowLayout1
+            anchors.rightMargin: 0
+            anchors.bottomMargin: 0
+            anchors.leftMargin: 0
+            anchors.topMargin: 0
             // Kitölti a szülőt és nem hagy helyet az elemek között.
             anchors.fill: parent
             spacing: 0
             // A history lista egy scrollozható elemen belül van.
             ScrollView {
+                width: 350
+                anchors.left: parent.left
+                anchors.leftMargin: 0
                 // A scrollohzató elem igazítása a szölő RowLayouthoz.
                 // Itt a ScrollViewon belül adjuk meg, hogy a RowLayoutban
                 //  mik legyenek a rá (ScrollViewra) vonatkozó méret beállítások,
@@ -137,13 +181,15 @@ Item {
                 Layout.fillHeight: true
                 Layout.fillWidth: true
                 Layout.minimumWidth: 250
-                Layout.preferredWidth: 250
-                Layout.maximumWidth: 300
+                Layout.preferredWidth: 350
+                Layout.maximumWidth: 400
                 Layout.minimumHeight: 150
 
                 // Itt jön a tényleges lista.
                 ListView {
                     id: stateHistoryList
+                    width: 0
+                    anchors.fill: parent
                     // A model az, ahonnan az adatokat vesszük.
                     // A historyModel változót a MainWindowsEventHandling::historyChanged metódus teszi
                     //  elérhetővé a QML oldalon is.
@@ -166,6 +212,9 @@ Item {
             //  (A rendszer név alapján találja meg a fájlt.)
             HistoryGraph {
                 id: historyGraph
+                width: 100
+                anchors.left: parent.left
+                anchors.leftMargin: 350
                 // Az objectName akkor jó, ha C++ oldalról kell megkeresnünk egy QML oldalon definiált
                 //  objektumot a findChild metódus rekurzív hívásaival.
                 objectName: "historyGraph"
@@ -173,8 +222,8 @@ Item {
                 // A RowLayout erre az elemre vonatkozó elhelyezés beállításai.
                 Layout.fillHeight: true
                 Layout.fillWidth: true
-                Layout.minimumWidth: 200
-                Layout.preferredWidth: 400
+                Layout.minimumWidth: 100
+                Layout.preferredWidth: 100
                 Layout.minimumHeight: 150
 
                 // Ezek pedig a HistoryGraph tulajdonságai, amiket majd ott definiálunk,

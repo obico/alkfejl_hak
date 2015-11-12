@@ -3,7 +3,7 @@
 #define ROBOTSTATE_H
 #include <QDataStream>
 #include <QString>
-
+#include <QVector>
 /**
  * @brief A robot teljes állapotleírása le egy adott időpillanatban.
  *
@@ -48,8 +48,8 @@ public:
      * @param a Gyorsulás
      * @param light Robot lámpájának állapota
      */
-    RobotState(Status status, qint64 timestamp,
-        float x, float v, float a, qint8 light);
+
+    RobotState(Status status, qint64 timestamp, float x, float v, float a,QVector<int>g, qint8 light);
 
     ~RobotState() = default;
 
@@ -79,6 +79,11 @@ public:
     Q_PROPERTY(float a READ a WRITE setA MEMBER _a NOTIFY aChanged)
     float a() const { return _a; }
     void setA(float a) { _a = a; }
+
+    /** Gyroszkóp  */
+    Q_PROPERTY(QVector<int> g READ g WRITE setG MEMBER _g NOTIFY aChanged)
+    QVector<int> g() const {return _g;}
+    void setG(QVector<int>  g) {_g=g;}
 
     /** A robot lámpájának állapota. */
     Q_PROPERTY(bool light READ light WRITE setLight MEMBER _light NOTIFY lightChanged)
@@ -117,6 +122,7 @@ private:
     float _x;   /** Pozíció (m) */
     float _v;   /** Sebesség (m/s) */
     float _a;   /** Gyorsulás (m/s2) */
+    QVector<int>  _g ;
     qint8 _light;
 
     /** Az állapotok és szöveges verziójuk közti megfeleltetés.

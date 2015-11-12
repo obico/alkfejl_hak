@@ -20,6 +20,7 @@ void RobotStateHistory::Add(const RobotState& state)
     //  ezekből olvassák ki az adatokat, mivel erre a fenti container nem alkalmas. (Az std::vector
     //  nem támogatja a Qt metaobject rendszerét.)
     graphTimestamps.clear();
+    graphGyro.clear();
     graphVelocities.clear();
     graphAcceleration.clear();
     int graphStateNumber = stateList.size() < shownStateNumber ? stateList.size() : shownStateNumber;
@@ -28,6 +29,7 @@ void RobotStateHistory::Add(const RobotState& state)
     {
         RobotState *currentState = it->get();
         graphTimestamps.append(currentState->timestamp());
+        graphGyro.append(currentState->g());
         graphVelocities.append(currentState->v());
         graphAcceleration.append(currentState->a());
     }

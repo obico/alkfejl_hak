@@ -47,6 +47,7 @@ public:
     QList<int> graphTimestamps;
     QList<int> graphVelocities;
     QList<int> graphAcceleration;
+    QList<QVector<int> > graphGyro;
     /** @}*/
 
     /** A megjelenítendő állapotok száma. */

@@ -7,7 +7,7 @@ import QtQuick.Dialogs 1.2
 ApplicationWindow {
     title: qsTr("Hello World")
     width: 640
-    height: 480
+    height: 544
     visible: true
 
     // Signalok, melyeket a C++ oldalon fogunk C++ slotokhoz kötni
@@ -40,6 +40,8 @@ ApplicationWindow {
     //  valamint a signaljainak az eseménykezelőit.
     MainForm {
         id: mainFormControl
+        width: 640
+        height: 480
         anchors.fill: parent
 
         // Az eseménykezelőkben tovább hívjuk az itteni signalokat a C++ oldal felé.

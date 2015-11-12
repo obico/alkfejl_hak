@@ -35,6 +35,14 @@ void MainWindowsEventHandling::historyChanged()
     qmlContext.setContextProperty(QStringLiteral("currentState"), QVariant::fromValue(history.currentState));
 
     qmlContext.setContextProperty(QStringLiteral("historyGraphTimestamps"), QVariant::fromValue(history.graphTimestamps));
+    int a;
+    QList<int> b;
+    if(!history.graphGyro.isEmpty())
+    {
+        a=history.graphGyro.count();
+        b=history.graphGyro[a-1].toList();
+    }
+    qmlContext.setContextProperty(QStringLiteral("historyGraphGyro"), QVariant::fromValue(b));
     qmlContext.setContextProperty(QStringLiteral("historyGraphVelocity"), QVariant::fromValue(history.graphVelocities));
     qmlContext.setContextProperty(QStringLiteral("historyGraphAcceleration"), QVariant::fromValue(history.graphAcceleration));
 
@@ -71,9 +79,11 @@ QQuickItem* MainWindowsEventHandling::FindItemByName(QObject *rootObject, const 
 void MainWindowsEventHandling::ConnectQmlSignals(QObject *rootObject)
 {
     QQuickItem *historyGraph = FindItemByName(rootObject,QString("historyGraph"));
+    QQuickItem *vectorGraph = FindItemByName(rootObject,QString("vectorGraph"));
     if (historyGraph)
     {
         QObject::connect(this, SIGNAL(historyContextUpdated()), historyGraph, SLOT(requestPaint()));
+        QObject::connect(this, SIGNAL(historyContextUpdated()), vectorGraph, SLOT(requestPaint()));
     }
     else
     {

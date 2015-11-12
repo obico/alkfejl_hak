@@ -5,7 +5,7 @@
 #include <QTimer>
 #include "Communication/CommunicationTcpSocketServer.h"
 #include "RobotState.h"
-
+#include <QVector>
 /**
  * @brief A robot szimulátor.
  *
