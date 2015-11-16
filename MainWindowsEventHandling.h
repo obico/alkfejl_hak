@@ -49,6 +49,9 @@ public slots:
     /** A Reset nyomógomb eseménykezelője. */
     void resetCommand();
 
+    /** A Robot öntesztelő funkciójának eseménykezelője */
+    void robotTestCommand();
+
     /** Azt jelzi, hogy változott az állapot history. (Tipikusan mert új állapot érkezett a robottól.)
      * Frissíti a QML számára elérhetővé tett, C++ oldali változókat (propertyket) és
      * kiváltja a historyContextUpdated() signalt.

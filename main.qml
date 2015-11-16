@@ -14,7 +14,9 @@ ApplicationWindow {
     //  az StvApplication osztály konstruktorában.
     signal resetCommandCpp()
     signal accelerateCommandCpp()
+    signal slowCommandCpp()
     signal stopCommandCpp()
+    signal robotTestCommandCpp()
 
     // Az ablak menuBar tulajdonságának értékül adunk egy MenuBar példányt, amit itt rakunk össze.
     menuBar: MenuBar {
@@ -51,6 +53,9 @@ ApplicationWindow {
         }
         onStopCommand: {
             stopCommandCpp();
+        }
+        onRobotTestCommand: {
+            robotTestCommandCpp();
         }
     }
 }

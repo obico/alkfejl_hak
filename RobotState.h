@@ -31,7 +31,9 @@ public:
         Stopping = 2,
         /** Gyorsítási parancs a robotnak. A gyorsítás mértékét a robot
          * átveszi a RobotState::a tulajdonságból. */
-        Accelerate = 3
+        Accelerate = 3,
+        /** A robot elindításakor leteszteljük a robotot, majd csak utána indítjuk el. */
+        Error = 4
     };
 
     /**
@@ -47,9 +49,10 @@ public:
      * @param v Sebesség
      * @param a Gyorsulás
      * @param light Robot lámpájának állapota
+     * @param error Robot öntesztelése esetén felmerülő hibája
      */
     RobotState(Status status, qint64 timestamp,
-        float x, float v, float a, qint8 light);
+        float x, float v, float a, qint8 light, QString error);
 
     ~RobotState() = default;
 
@@ -85,6 +88,11 @@ public:
     float light() const { return _light; }
     void setLight(float light) { _light = light; }
 
+    /** A robot hibájának kiiratására. */
+    Q_PROPERTY(QString error READ error WRITE setError MEMBER _error NOTIFY errorChanged)
+    QString error() const { return _error; }
+    void setError(QString error) { _error = error; }
+
     /** Az aktuális állapot QStringként. */
     // In QML, it will be accessible as model.statusName
     Q_PROPERTY(QString statusName READ getStatusName NOTIFY statusChanged)
@@ -110,6 +118,7 @@ signals:
     void vChanged();
     void aChanged();
     void lightChanged();
+    void errorChanged();
 
 private:
     Status _status;
@@ -118,6 +127,7 @@ private:
     float _v;   /** Sebesség (m/s) */
     float _a;   /** Gyorsulás (m/s2) */
     qint8 _light;
+    QString _error;
 
     /** Az állapotok és szöveges verziójuk közti megfeleltetés.
      * A getStatusName() használja. */

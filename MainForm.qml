@@ -11,7 +11,10 @@ Item {
     //  eseménykezelői aktiválják őket.
     signal resetCommand;
     signal accelerateCommand;
+    signal slowCommand;
     signal stopCommand;
+    signal robotTestCommand;
+
 
     // A parancs nyomógombok elemcsoportja
     GroupBox {
@@ -50,6 +53,7 @@ Item {
                 anchors.leftMargin: 0
                 onClicked: accelerateCommand()
             }
+
             Button {
                 id: stopBtn
                 anchors.left: parent.left
@@ -58,6 +62,16 @@ Item {
                 anchors.rightMargin: 0
                 anchors.leftMargin: 0
                 onClicked: stopCommand()
+            }
+
+            Button {
+                id: testBtn
+                anchors.left: parent.left
+                anchors.right: parent.right
+                text: qsTr("Öntesztelés")
+                anchors.rightMargin: 0
+                anchors.leftMargin: 0
+                onClicked: robotTestCommand()
             }
         }
     }
@@ -75,6 +89,7 @@ Item {
 
         // Oszlopba rendezett további elemek
         ColumnLayout {
+            transformOrigin: Item.Center
             // Felfelé, lefelé és balra a szülő széléhez illeszkedik. Jobbra nem, mert
             //  széthúzni felesleges őket.
             anchors.top: parent.top
@@ -90,6 +105,8 @@ Item {
             Text { text: " V: " + (currentState!=null ? currentState.v.toFixed(3) : "?") }
             Text { text: " A: " + (currentState!=null ? currentState.a.toFixed(3) : "?") }
             Text { text: " Lámpa: " + (currentState!=null ? currentState.light.toString() : "?") }
+            Text { text: " Hiba: " + (currentState!=null ? currentState.error.toString() : "?") }
+
         }
     }
 

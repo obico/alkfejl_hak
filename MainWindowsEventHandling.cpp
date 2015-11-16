@@ -28,6 +28,14 @@ void MainWindowsEventHandling::resetCommand()
     robot.reset();
 }
 
+void MainWindowsEventHandling::robotTestCommand()
+{
+    robot.reset();
+    robot.accelerate();
+    robot.stop();
+
+}
+
 void MainWindowsEventHandling::historyChanged()
 {
     // Ahhoz, hogy frissüljenek a QML oldali adatok, frissíteni kell a változók összekapcsolását.

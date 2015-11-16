@@ -1,5 +1,9 @@
 #include "Simulator.h"
 
+// Fizikai paraméterek szimulációja
+float Current = static_cast <float> (std::rand()) / (static_cast <float> (RAND_MAX/12));
+float Voltage = static_cast <float> (std::rand()) / (static_cast <float> (RAND_MAX/12));
+
 Simulator::Simulator(int port)
     : communication(port), state()
 {
@@ -9,8 +13,37 @@ Simulator::Simulator(int port)
     connect(&timer, SIGNAL(timeout()), this, SLOT(tick()));
 }
 
+/*
+void Simulator::robotTest(float intervalSec)
+{
+    dt = intervalSec;
+    state.setStatus(RobotState::Status::Default);
+    state.setTimestamp(0);
+    state.setX(0.0F);
+    state.setV(0.0F);
+    state.setA(0.0F);
+    state.setLight(0);
+    state.setError("nincs hiba");
+
+    // Teszt timer
+    QTimer *testTimer = new QTimer(this);
+    connect(testTimer, SIGNAL(timeout()), this, SLOT(testTick()));
+    testTimer->start(intervalSec);
+    qDebug() << "Robot öntesztelő funkciója";
+}
+
+void Simulator::testTick()
+{
+    // Fizikai paraméterek szimulációja
+    Current = static_cast <float> (std::rand()) / (static_cast <float> (RAND_MAX/12));
+    Voltage = static_cast <float> (std::rand()) / (static_cast <float> (RAND_MAX/12));
+
+
+}
+*/
 void Simulator::start(float intervalSec)
 {
+
     // Számláló indítása
     dt = intervalSec;
     state.setStatus(RobotState::Status::Default);
@@ -19,17 +52,19 @@ void Simulator::start(float intervalSec)
     state.setV(0.0F);
     state.setA(0.0F);
     state.setLight(0);
-    state.setError(0.0F);
+    state.setError("nincs hiba");
     timer.start((long)(intervalSec*1000.0F));
 }
 
 
 void Simulator::tick()
 {
-    // Fizikai paraméterek szimulációja (legyen mindegyik 10 bit)
-    float Current = std::rand() % 1024;
-    float Voltage = std::rand() % 1024;
+    // Fizikai paraméterek szimulációja
+    Current = static_cast <float> (std::rand()) / (static_cast <float> (RAND_MAX/12));
+    Voltage = static_cast <float> (std::rand()) / (static_cast <float> (RAND_MAX/12));
 
+    // Hiba kijeleztetése
+    state.setError("nincs hiba");
 
     // Fizikai szimuláció
     state.setTimestamp(state.timestamp() + dt);
@@ -50,34 +85,39 @@ void Simulator::tick()
     // Magasabb szintű funkciók
     switch(state.status())
     {
-/*    case RobotState::Status::Start:
-        state.setLight(1);                                          //lámpa induláskor égjen
-        if (0 == 0)                                                 //ha nincs hiba, akkor számoljon tovább (default állapot)
-             state.setStatus(RobotState::Status::Default);
-        else{                                                       //ha hiba van, akkor timer stop és resetre induljon csak újra  (reset állapot)
+    case RobotState::Status::Default:
+        // Ide kell a folyamatos paraméter ellenőrzése, ha bármi hiba fellép akkor írja ki azt és állítsa le a robotszimulátort
+        // Jelenleg a túláramot és a túlfeszültséget szeretnénk vizsgálni.
+        if (Current > 11.9)
+        {
+            state.setStatus(RobotState::Status::Error);
+            qDebug() << "Túl nagy áram";
+            state.setLight(1);
+            state.setError("túláram");
+            timer.stop();
+        }
 
-            state.setStatus(RobotState::Status::Reset);
+        if (Voltage > 11.9)
+        {
+            state.setStatus(RobotState::Status::Error);
+            qDebug() << "Túl nagy feszültség";
+            state.setLight(1);
+            state.setError("túlfeszültség");
+            timer.stop();
         }
         break;
-*/
-    case RobotState::Status::Default:
-        // ide kell a folyamatos paraméter ellenőrzése, ha bármi hiba fellép akkor írja ki és állítsa le a robotszimulátort
-        if (Current > 900)
-            state.setStatus(RobotState::Status::Error);
-        if (Voltage > 900)
-            state.setStatus(RobotState::Status::Error);
-        break;
+
     case RobotState::Status::Error:
         state.setLight(1);
-        timer.stop();
         break;
+
     case RobotState::Status::Reset:
         qDebug() << "Simulator: Reset";
-        state.setStatus(RobotState::Status::Default);                 //reset hatására start állapotba megy és kezdi a kiértékelést újra
+        state.setStatus(RobotState::Status::Default);        //reset hatására start állapotba megy és kezdi a kiértékelést újra
         state.setX(0.0F);
         state.setV(0.0F);
         state.setA(0.0F);
-        state.setError(0.0F);
+        state.setError("nincs hiba");
         state.setLight(0);
         break;
     case RobotState::Status::Stopping:
