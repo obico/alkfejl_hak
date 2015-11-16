@@ -12,14 +12,18 @@ Simulator::Simulator(int port)
 void Simulator::start(float intervalSec)
 {
     dt = intervalSec;
-    state.setStatus(RobotState::Status::Default);
+    state.setStatus(RobotState::Status::Start);
     state.setTimestamp(0);
     state.setX(0.0F);
     state.setV(0.0F);
     state.setA(0.0F);
-    state.setLight(0);
+  //  state.setLight(1);
     timer.start((long)(intervalSec*1000.0F));
 }
+
+/*void Simulator::testSimulatorFunctions()
+{
+*/
 
 void Simulator::tick()
 {
@@ -42,15 +46,26 @@ void Simulator::tick()
     // Magasabb szintű funkciók
     switch(state.status())
     {
+    case RobotState::Status::Start:
+        state.setLight(1);                                          //lámpa induláskor égjen
+        if (1 == 0)                                           //ha nincs hiba, akkor számoljon tovább (default állapot)
+             state.setStatus(RobotState::Status::Default);
+        else{                                                       //ha hiba van, akkor timer stop és resetre induljon csak újra  (reset állapot)
+            timer.stop();
+            state.setStatus(RobotState::Status::Reset);
+        }
+        break;
     case RobotState::Status::Default:
         break;
     case RobotState::Status::Reset:
         qDebug() << "Simulator: Reset";
-        state.setStatus(RobotState::Status::Default);
+        state.setStatus(RobotState::Status::Start);                 //reset hatására start állapotba megy és kezdi a kiértékelést újra
         state.setX(0.0F);
         state.setV(0.0F);
         state.setA(0.0F);
         state.setLight(0);
+        //ide kellene a timer újraindítás
+        timer.start(1);
         break;
     case RobotState::Status::Stopping:
         if (state.v() > 1.5F)
@@ -112,6 +127,7 @@ void Simulator::dataReady(QDataStream &inputStream)
     {
     case RobotState::Status::Default:
         qDebug() << "Simulator: OK parancs. Igen, minden OK, köszönöm!";
+        state.setStatus(RobotState::Status::Default);
         break;
     case RobotState::Status::Reset:
         qDebug() << "Simulator: Reset parancs.";
