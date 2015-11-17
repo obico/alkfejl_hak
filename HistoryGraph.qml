@@ -6,7 +6,8 @@ Canvas {
     property var graphTimestamps;
     property var graphVelocities;
     property var graphAccelerations;
-
+    property var graphGyro1;
+    property var graphGyro2;
     // A Canvas Paint signalja esetén újra kell rajzolni a grafikont.
     onPaint: {
         // A grafikon rajzolát itt, a QML oldalon, JavaScripben megírva történik.
@@ -29,6 +30,8 @@ Canvas {
         //  Ez is külön függvénybe került.
         drawDataset(context, graphVelocities, "rgba(110,220,110,1)", 5.0);
         drawDataset(context, graphAccelerations, "rgba(220,110,110,1)", 5.0);
+        drawDataset(context, graphGyro1, "rgba(255,255,0,1)",5.0)
+        drawDataset(context, graphGyro2, "rgba(255,159,0,1)",5.0)
     } // onPaint vége
 
     // Vízszintes vonal berajzolása.
