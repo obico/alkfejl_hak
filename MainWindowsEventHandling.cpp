@@ -34,18 +34,13 @@ void MainWindowsEventHandling::historyChanged()
     qmlContext.setContextProperty(QStringLiteral("currentState"), QVariant::fromValue(history.currentState));
 
     qmlContext.setContextProperty(QStringLiteral("historyGraphTimestamps"), QVariant::fromValue(history.graphTimestamps));
-    //A Qvector nem támogatott QML-ben, ezért átalakítom QList-be
-    int a;
-    QList<int> b;
-    if(!history.graphGyro.isEmpty())
-    {
-        a=history.graphGyro.count();
-        b=history.graphGyro[a-1].toList();
 
-    }
+    //A Qvector nem támogatott QML-ben, ezért átalakítom QList-be
+
     QList<int> v1,v2;
     if(!history.graphGyro.isEmpty())
     {
+
         int i;
         for(i=0;i<history.graphGyro.count();i++)
         {

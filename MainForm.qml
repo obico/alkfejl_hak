@@ -92,7 +92,7 @@ Item {
             Text { text: " X: " + (currentState!=null ? currentState.x.toFixed(3) : "?") }
             Text { text: " V: " + (currentState!=null ? currentState.v.toFixed(3) : "?") }
             Text { text: " A: " + (currentState!=null ? currentState.a.toFixed(3) : "?") }
-            Text { text: " G: " + (currentState!=null ? currentState.g : "?") }
+            Text { text: " G: " + historyGraphGyro1[historyGraphGyro1.length-1]+","+historyGraphGyro2[historyGraphGyro2.length-1]  }
             Text { text: " Lámpa: " + (currentState!=null ? currentState.light.toString() : "?") }
 
             GroupBox {
@@ -140,7 +140,6 @@ Item {
             Text { text: " X: " + model.x.toFixed(3) }
             Text { text: " V: " + model.v.toFixed(3) }
             Text { text: " A: " + model.a.toFixed(3) }
-            Text { text: " G: " + model.g}
         }
     }
 
@@ -237,6 +236,39 @@ Item {
                 graphVelocities: historyGraphVelocity
                 graphAccelerations: historyGraphAcceleration
             }
+        }
+    }
+
+    Rectangle {
+        id: rectangle1
+        x: 380
+        y: 190
+        width: 94
+        height: 141
+        color: "#ffffff"
+
+        Flickable {
+            id: flickable1
+            x: 0
+            y: 16
+            anchors.fill: parent
+            flickableDirection: Flickable.HorizontalFlick
+            contentWidth: gyrotext1.width; contentHeight: gyrotext1.height
+            clip: true
+            Text {
+                id: gyrotext1
+                x: 0
+                y: 0
+                anchors.fill: rectangle1
+                width: 88
+                height: 92
+                text:"G1: "+ historyGraphGyro1 + "\n" +"G2: "+ historyGraphGyro2
+                wrapMode:Text.NoWrap
+
+                font.pixelSize: 12
+            }
+
+
         }
     }
 }
