@@ -27,7 +27,6 @@ void MainWindowsEventHandling::resetCommand()
 {
     robot.reset();
 }
-
 void MainWindowsEventHandling::historyChanged()
 {
     // Ahhoz, hogy frissüljenek a QML oldali adatok, frissíteni kell a változók összekapcsolását.
@@ -35,14 +34,28 @@ void MainWindowsEventHandling::historyChanged()
     qmlContext.setContextProperty(QStringLiteral("currentState"), QVariant::fromValue(history.currentState));
 
     qmlContext.setContextProperty(QStringLiteral("historyGraphTimestamps"), QVariant::fromValue(history.graphTimestamps));
+    //A Qvector nem támogatott QML-ben, ezért átalakítom QList-be
     int a;
     QList<int> b;
     if(!history.graphGyro.isEmpty())
     {
         a=history.graphGyro.count();
         b=history.graphGyro[a-1].toList();
+
     }
-    qmlContext.setContextProperty(QStringLiteral("historyGraphGyro"), QVariant::fromValue(b));
+    QList<int> v1,v2;
+    if(!history.graphGyro.isEmpty())
+    {
+        int i;
+        for(i=0;i<history.graphGyro.count();i++)
+        {
+            v1.append(history.graphGyro[i][0]);
+            v2.append(history.graphGyro[i][1]);
+        }
+    }
+
+    qmlContext.setContextProperty(QStringLiteral("historyGraphGyro1"), QVariant::fromValue(v1));
+    qmlContext.setContextProperty(QStringLiteral("historyGraphGyro2"), QVariant::fromValue(v2));
     qmlContext.setContextProperty(QStringLiteral("historyGraphVelocity"), QVariant::fromValue(history.graphVelocities));
     qmlContext.setContextProperty(QStringLiteral("historyGraphAcceleration"), QVariant::fromValue(history.graphAcceleration));
 

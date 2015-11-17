@@ -2,7 +2,6 @@ import QtQuick 2.0
 import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.1
 
-
 Item {
     width: 500
     height: 520
@@ -93,7 +92,7 @@ Item {
             Text { text: " X: " + (currentState!=null ? currentState.x.toFixed(3) : "?") }
             Text { text: " V: " + (currentState!=null ? currentState.v.toFixed(3) : "?") }
             Text { text: " A: " + (currentState!=null ? currentState.a.toFixed(3) : "?") }
-           // Text { text: " G: " + (currentstate!=null ? currentState.g : "?") }
+            Text { text: " G: " + (currentState!=null ? currentState.g : "?") }
             Text { text: " Lámpa: " + (currentState!=null ? currentState.light.toString() : "?") }
 
             GroupBox {
@@ -122,7 +121,8 @@ Item {
                     graphTimestamps: historyGraphTimestamps
                     graphVelocities: historyGraphVelocity
                     graphAccelerations: historyGraphAcceleration
-                    graphGyro: historyGraphGyro
+                    graphGyro1: historyGraphGyro1
+                    graphGyro2: historyGraphGyro2
                 }
             }
         }
@@ -140,7 +140,7 @@ Item {
             Text { text: " X: " + model.x.toFixed(3) }
             Text { text: " V: " + model.v.toFixed(3) }
             Text { text: " A: " + model.a.toFixed(3) }
-            //Text { text: " G: " + model.g}
+            Text { text: " G: " + model.g}
         }
     }
 

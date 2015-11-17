@@ -5,6 +5,7 @@ StvApplication::StvApplication(int argc, char *argv[])
     : QApplication(argc, argv), simulator(3333), engine(), history(), communication(),
       robot(history, communication), handler(robot, *engine.rootContext(), history)
 {
+
     // Szimulátor indítása
     simulator.start(1.0F);
 

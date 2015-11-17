@@ -4,6 +4,7 @@
 #include <QDataStream>
 #include <QString>
 #include <QVector>
+
 /**
  * @brief A robot teljes állapotleírása le egy adott időpillanatban.
  *
@@ -16,6 +17,7 @@
 class RobotState : public QObject
 {
     Q_OBJECT
+
 
 public:
     /**
@@ -122,6 +124,7 @@ private:
     float _x;   /** Pozíció (m) */
     float _v;   /** Sebesség (m/s) */
     float _a;   /** Gyorsulás (m/s2) */
+
     QVector<int>  _g ;
     qint8 _light;
 

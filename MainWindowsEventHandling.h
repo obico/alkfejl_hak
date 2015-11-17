@@ -11,6 +11,8 @@ class RobotStateHistory;
 class QQuickItem;
 class QQmlApplicationEngine;
 
+
+
 /**
  * @brief Ez az osztály tartalmazza a felhasználó felület (GUI) eseménykezelőit.
  *

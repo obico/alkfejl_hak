@@ -6,7 +6,8 @@ Canvas {
     property var graphTimestamps;
     property var graphVelocities;
     property var graphAccelerations;
-    property var graphGyro;
+    property var graphGyro1;
+    property var graphGyro2;
 
     // A Canvas Paint signalja esetén újra kell rajzolni a grafikont.
     onPaint: {
@@ -22,7 +23,7 @@ Canvas {
 
         drawHorizontalLine(context, 0, "rgba(100,100,100,1)", 5.0)
         //giroszkóp jelének berajzolása
-        drawcircle(context,graphGyro[0],graphGyro[1], "rgba(255,0,0,1)", 5.0)
+        drawcircle(context,graphGyro1[graphGyro1.length-1],graphGyro2[graphGyro2.length-1], "rgba(255,0,0,1)", 5.0)
         // Az adatsorok megrajzolása (a graphTimestamps értékét jelenleg nem használjuk).
         //  Ez is külön függvénybe került.
         //drawDataset(context, graphGyro, "rgba(110,220,110,1)", 5.0);
