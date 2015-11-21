@@ -8,5 +8,9 @@ CONFIG += testcase
 
 TEMPLATE = app
 
-SOURCES += main.cpp
+SOURCES += main.cpp \
+    alkfejl_hakapplicationtest.cpp
+
+HEADERS += \
+    alkfejl_hakapplicationtest.h
 
