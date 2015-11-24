@@ -10,6 +10,10 @@
  *
  */
 
+/**
+ * @see Fontos dokumentáció:Qt Creatorban unit teszt projektet létrehozva kapunk egyből egy kis keretprogramot is, ami elég jól megmutatja, hogyan is kell tesztet készíteni. A unit tesztelés általában azt jelenti, hogy a tesztelendő osztályokat példányosítjuk és mindenféle bemenetekkel bombázzuk, hogy utána ellenőrizzük a reakcióikat. A tesztelendő osztályok általában másik projektből származnak: általában több projektünk van, amiből az egyik a unit tesztek helye, és természetesen látják a többi projekt (pl. library és futtatható alkalmazás külön projektben) osztályait.
+ */
+
 class alkfejl_hakApplicationTest : public QObject
 {
     Q_OBJECT
