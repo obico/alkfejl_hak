@@ -16,9 +16,9 @@
  */
 
 /**
- * Itt egy STATE viselkedési mintát véltem felfedezni. A state minta lehetővé teszi egy objektum számára, hogy megváloztassa a működését, ha a belső állapota változik.
- * A robotnak mindig van egy aktuális állapota, amit felhasználunk. Egyszerűen gombokkal tudjuk változtatni az állapotát. Ezt az aktuális állapotot, az állapot le tudja cserélni.
- * Láthatjuk a RobotProxy állapotokat.
+ * @brief @see Itt egy STATE viselkedési mintát véltem felfedezni. A state minta lehetővé teszi egy objektum számára, hogy megváloztassa a működését, ha a belső állapota változik.
+ * @see A robotnak mindig van egy aktuális állapota, amit felhasználunk. Egyszerűen gombokkal tudjuk változtatni az állapotát. Ezt az aktuális állapotot, az állapot le tudja cserélni.
+ * @see Láthatjuk a RobotProxy állapotokat.
  */
 class RobotState : public QObject
 {

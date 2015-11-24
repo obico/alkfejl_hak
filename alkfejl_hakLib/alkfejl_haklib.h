@@ -2,6 +2,11 @@
 #define ALKFEJL_HAKLIB_H
 
 
+/**
+ * @brief The Alkfejl_hakLib class
+ * @note Ide lehet behúzni a tesztelendő objektumot.
+ */
+
 class Alkfejl_hakLib
 {
 

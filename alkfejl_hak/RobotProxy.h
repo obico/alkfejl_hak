@@ -18,9 +18,9 @@ class Communication;
  */
 
 /**
- * Itt jól megfigyelhető az OBSERVER tervezési minta.
- * Az observer tervezési minta lehetővé teszi, hogy egy objektum értesítést kapjon akkor, ha egy másik objektumban valamilyen esemény (például attribútumok változása) bekövetkezik.
- * Itt a RobotProxy és RobotState kommunikál egymással. A RobotProxy-ba a robot állapotának érkezésére várunk.
+ * @brief @see Itt jól megfigyelhető az OBSERVER tervezési minta.
+ * @see Az observer tervezési minta lehetővé teszi, hogy egy objektum értesítést kapjon akkor, ha egy másik objektumban valamilyen esemény (például attribútumok változása) bekövetkezik.
+ * @see Itt a RobotProxy és RobotState kommunikál egymással. A RobotProxy-ba a robot állapotának érkezésére várunk.
  */
 class RobotProxy : public QObject
 {
