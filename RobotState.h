@@ -32,8 +32,10 @@ public:
         /** Gyorsítási parancs a robotnak. A gyorsítás mértékét a robot
          * átveszi a RobotState::a tulajdonságból. */
         Accelerate = 3,
-        /** A robot elindításakor leteszteljük a robotot, majd csak utána indítjuk el. */
-        Error = 4
+        /** Hiba jelzésére szolgáló állapot. Akkor lép ide a robot, ha valamilyen probléma lép fel. Például túlfeszültség. */
+        Error = 4,
+        /** Öntesztelés állapota */
+        SelfTest = 5
     };
 
     /**

@@ -11,6 +11,7 @@ MainWindowsEventHandling::MainWindowsEventHandling(
     : robot(robot), qmlContext(qmlContext), history(history)
 {
     QObject::connect(&history, SIGNAL(historyChanged()), this, SLOT(historyChanged()));
+
 }
 
 void MainWindowsEventHandling::accelerateCommand()
@@ -31,9 +32,7 @@ void MainWindowsEventHandling::resetCommand()
 void MainWindowsEventHandling::robotTestCommand()
 {
     robot.reset();
-    robot.accelerate();
-    robot.stop();
-
+    robot.selfTest();
 }
 
 void MainWindowsEventHandling::historyChanged()

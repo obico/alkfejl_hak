@@ -13,34 +13,6 @@ Simulator::Simulator(int port)
     connect(&timer, SIGNAL(timeout()), this, SLOT(tick()));
 }
 
-/*
-void Simulator::robotTest(float intervalSec)
-{
-    dt = intervalSec;
-    state.setStatus(RobotState::Status::Default);
-    state.setTimestamp(0);
-    state.setX(0.0F);
-    state.setV(0.0F);
-    state.setA(0.0F);
-    state.setLight(0);
-    state.setError("nincs hiba");
-
-    // Teszt timer
-    QTimer *testTimer = new QTimer(this);
-    connect(testTimer, SIGNAL(timeout()), this, SLOT(testTick()));
-    testTimer->start(intervalSec);
-    qDebug() << "Robot öntesztelő funkciója";
-}
-
-void Simulator::testTick()
-{
-    // Fizikai paraméterek szimulációja
-    Current = static_cast <float> (std::rand()) / (static_cast <float> (RAND_MAX/12));
-    Voltage = static_cast <float> (std::rand()) / (static_cast <float> (RAND_MAX/12));
-
-
-}
-*/
 void Simulator::start(float intervalSec)
 {
 
@@ -59,7 +31,7 @@ void Simulator::start(float intervalSec)
 
 void Simulator::tick()
 {
-    // Fizikai paraméterek szimulációja
+    // Fizikai paraméterek szimulációja 0-12 közti értékek
     Current = static_cast <float> (std::rand()) / (static_cast <float> (RAND_MAX/12));
     Voltage = static_cast <float> (std::rand()) / (static_cast <float> (RAND_MAX/12));
 
@@ -88,7 +60,7 @@ void Simulator::tick()
     case RobotState::Status::Default:
         // Ide kell a folyamatos paraméter ellenőrzése, ha bármi hiba fellép akkor írja ki azt és állítsa le a robotszimulátort
         // Jelenleg a túláramot és a túlfeszültséget szeretnénk vizsgálni.
-        if (Current > 11.9)
+        if (Current > 11.97)
         {
             state.setStatus(RobotState::Status::Error);
             qDebug() << "Túl nagy áram";
@@ -97,7 +69,7 @@ void Simulator::tick()
             timer.stop();
         }
 
-        if (Voltage > 11.9)
+        if (Voltage > 11.97)
         {
             state.setStatus(RobotState::Status::Error);
             qDebug() << "Túl nagy feszültség";
@@ -153,6 +125,39 @@ void Simulator::tick()
         // Megjegyzés: a gyorsulás kért értékét már a parancs fogadásakor beállítottuk
         qDebug() << "HIBA: A szimulátor nem kerülhetne a Status::Accelerate állapotba.";
         break;
+    case RobotState::Status::SelfTest:
+        // Lámpa felkapcsolása az öntesztelés alatt
+        state.setLight(1);
+        // A robot következő funkcióinak tesztelése: reset, accelerate, stop
+        if (state.v() > 1.5F)
+        {
+            qDebug() << "Simulator: Stop parancs, gyors lassítás";
+            state.setA(-1.0F);
+        }
+        else if (state.v() > 0.1F)
+        {
+            qDebug() << "Simulator: Stop parancs, lassú lassítás";
+            state.setA(-0.05F);
+        }
+        else if (state.v() < -1.5F)
+        {
+            qDebug() << "Simulator: Stop parancs, gyorsítás előre";
+            state.setA(1.0F);
+        }
+        else if (state.v() < -0.1F)
+        {
+            qDebug() << "Simulator: Stop parancs, lassú gyorsítás előre";
+            state.setA(0.05F);
+        }
+        else
+        {
+            // Majdnem megállt
+            qDebug() << "A robot öntesztelése sikeresen lezajlott.";
+            state.setStatus(RobotState::Status::Default);
+            state.setA(0.0F);
+            state.setLight(0);
+        }
+        break;
     default:
         Q_UNREACHABLE();
     }
@@ -195,6 +200,11 @@ void Simulator::dataReady(QDataStream &inputStream)
         qDebug() << "Simulator: Gyorsítási parancs.";
         state.setStatus(RobotState::Status::Default);
         state.setA(receivedState.a());
+        break;
+    case RobotState::Status::SelfTest:
+        qDebug() << "Simulator: Öntesztelési parancs.";
+        state.setA(5);
+        state.setStatus(RobotState::Status::SelfTest);
         break;
     default:
         Q_UNREACHABLE();

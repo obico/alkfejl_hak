@@ -25,6 +25,7 @@ void RobotState::initStatusNames()
         statusNames[(int)Status::Reset] = QString("Reset");
         statusNames[(int)Status::Stopping] = QString("Megállás");
         statusNames[(int)Status::Error] = QString("Error");
+        statusNames[(int)Status::SelfTest] = QString("Öntesztelés");
 
     }
 }
