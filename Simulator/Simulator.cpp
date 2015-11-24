@@ -1,4 +1,5 @@
 #include "Simulator.h"
+#include <QMessageBox>
 
 // Fizikai paraméterek szimulációja
 float Current = static_cast <float> (std::rand()) / (static_cast <float> (RAND_MAX/12));
@@ -26,6 +27,7 @@ void Simulator::start(float intervalSec)
     state.setLight(0);
     state.setError("nincs hiba");
     timer.start((long)(intervalSec*1000.0F));
+
 }
 
 
@@ -151,11 +153,12 @@ void Simulator::tick()
         }
         else
         {
-            // Majdnem megállt
+            // Majdnem megállt, akkor sikeres volt a Stop parancs, vagyis az öntesztelés sikeresnek mondható
             qDebug() << "A robot öntesztelése sikeresen lezajlott.";
-            state.setStatus(RobotState::Status::Default);
-            state.setA(0.0F);
-            state.setLight(0);
+            QMessageBox msgBox;
+            msgBox.setText("Az öntesztelés sikeres volt!");
+            msgBox.exec();
+            state.setStatus(RobotState::Status::Reset);
         }
         break;
     default:
