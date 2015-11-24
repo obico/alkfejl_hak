@@ -17,7 +17,7 @@ class Communication;
  * A konstruktor köti a dataReady() slotot a kommunikációs objektumhoz és kezeli az adatfogadást.
  */
 
-/*
+/**
  * Itt jól megfigyelhető az OBSERVER tervezési minta.
  * Az observer tervezési minta lehetővé teszi, hogy egy objektum értesítést kapjon akkor, ha egy másik objektumban valamilyen esemény (például attribútumok változása) bekövetkezik.
  * Itt a RobotProxy és RobotState kommunikál egymással. A RobotProxy-ba a robot állapotának érkezésére várunk.
