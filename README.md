@@ -1,2 +1,2 @@
 # alkfejl_hak
-WTF műxik
+Az alkalmazásfejlesztés tárgy házi feladata.
