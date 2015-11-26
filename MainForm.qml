@@ -79,7 +79,7 @@ Item {
     // Aktuális értékek elemcsoportja
     GroupBox {
         id: currentValuesGB
-        height: 338
+        height: 200
         title: "Pillanatnyi értékek"
         // Fent és jobbra kitölti a szülőt. Balról illeszkedik a
         //  parancsok GroupBox-ának jobb széléhez.
@@ -111,39 +111,6 @@ Item {
             Text { text: " Hiba: " + (currentState!=null ? currentState.error.toString() : "?") }
 
 
-
-
-            GroupBox {
-                id: groupBox1
-                width: 360
-                height: 300
-                title: qsTr("Gyroszkóp")
-
-                VectorGraph {
-                    id: vectorGraph
-                    x: 0
-                    width: 150
-                    height: 150
-                    // Az objectName akkor jó, ha C++ oldalról kell megkeresnünk egy QML oldalon definiált
-                    //  objektumot a findChild metódus rekurzív hívásaival.
-                    objectName: "vectorGraph"
-
-
-                    // Ezek pedig a HistoryGraph tulajdonságai, amiket majd ott definiálunk,
-                    //  itt pedig értéket adunk nekik. Az alábbi változókat (pl. historyGraphTimestamps)
-                    //  szintén a MainWindowsEventHandling::historyChanged metódus teszi elérhetővé
-                    //  a QML oldal számára.
-                    // Ezek az értékek C++ oldalon folyamatosan változnak. Minden változás esetén
-                    //  lefut a MainWindowsEventHandling::historyChanged és ezeket újraregisztrálja a QML
-                    //  oldal számára, így frissülni fog a HistoryGraph tulajdonság is.
-                    graphTimestamps: historyGraphTimestamps
-                    graphVelocities: historyGraphVelocity
-                    graphAccelerations: historyGraphAcceleration
-                    graphGyro1: historyGraphGyro1
-                    graphGyro2: historyGraphGyro2
-                }
-            }
-
         }
     }
 
@@ -155,12 +122,58 @@ Item {
         id: stateDelegate
         Row {
             // Itt a model az, ami a list egyik eleme. (Bármi is legyen majd az.)
-            Text { text: model.statusName }
             Text { text: " X: " + model.x.toFixed(3) }
             Text { text: " V: " + model.v.toFixed(3) }
             Text { text: " A: " + model.a.toFixed(3) }
+            Text { text: "  " + model.statusName }
         }
     }
+
+
+
+
+    GroupBox {
+        id: groupBox1
+        width: 360
+        height: 300
+        anchors.top: parent.top
+        anchors.right: parent.right
+        anchors.bottomMargin: 30
+        title: qsTr("Gyroszkóp")
+
+        VectorGraph {
+            id: vectorGraph
+            x: 0
+            width: 200
+            height: 200
+            // Az objectName akkor jó, ha C++ oldalról kell megkeresnünk egy QML oldalon definiált
+            //  objektumot a findChild metódus rekurzív hívásaival.
+            objectName: "vectorGraph"
+
+            Layout.fillHeight: true
+            Layout.fillWidth: true
+            Layout.minimumWidth: 150
+            Layout.preferredWidth: 250
+            Layout.maximumWidth: 300
+            Layout.minimumHeight: 150
+            Layout.preferredHeight: 250
+            Layout.maximumHeight: 300
+
+            // Ezek pedig a HistoryGraph tulajdonságai, amiket majd ott definiálunk,
+            //  itt pedig értéket adunk nekik. Az alábbi változókat (pl. historyGraphTimestamps)
+            //  szintén a MainWindowsEventHandling::historyChanged metódus teszi elérhetővé
+            //  a QML oldal számára.
+            // Ezek az értékek C++ oldalon folyamatosan változnak. Minden változás esetén
+            //  lefut a MainWindowsEventHandling::historyChanged és ezeket újraregisztrálja a QML
+            //  oldal számára, így frissülni fog a HistoryGraph tulajdonság is.
+            graphTimestamps: historyGraphTimestamps
+            graphVelocities: historyGraphVelocity
+            graphAccelerations: historyGraphAcceleration
+            graphGyro1: historyGraphGyro1
+            graphGyro2: historyGraphGyro2
+        }
+    }
+
 
     // Az állapot lista és a grafikon GroupBoxa.
     GroupBox {

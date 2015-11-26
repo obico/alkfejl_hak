@@ -220,7 +220,7 @@ void Simulator::dataReady(QDataStream &inputStream)
         break;
     case RobotState::Status::SelfTest:
         qDebug() << "Simulator: Öntesztelési parancs.";
-        state.setA(5);
+        state.setA(1);
         state.setStatus(RobotState::Status::SelfTest);
         break;
     default:

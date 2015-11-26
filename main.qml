@@ -5,8 +5,8 @@ import QtQuick.Dialogs 1.2
 
 // Ez lesz az alkalmazás főablaka
 ApplicationWindow {
-    title: qsTr("Hello World")
-    width: 640
+    title: qsTr("Robot kliens program")
+    width: 740
     height: 544
     visible: true
 
