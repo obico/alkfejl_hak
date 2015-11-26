@@ -4,14 +4,17 @@ import QtQuick.Layouts 1.1
 
 Item {
     width: 500
-    height: 520
+    height: 500
     anchors.fill: parent
 
     // Signalok, melyek a kiadott parancsokat jelzik és a nyomógombok
     //  eseménykezelői aktiválják őket.
     signal resetCommand;
     signal accelerateCommand;
+    signal slowCommand;
     signal stopCommand;
+    signal robotTestCommand;
+
 
     // A parancs nyomógombok elemcsoportja
     GroupBox {
@@ -21,7 +24,6 @@ Item {
         anchors.left : parent.left
         anchors.top : parent.top
         width: 200
-        height: 123
 
         // A nyomógombokat oszlopba rendezzük
         ColumnLayout {
@@ -51,6 +53,7 @@ Item {
                 anchors.leftMargin: 0
                 onClicked: accelerateCommand()
             }
+
             Button {
                 id: stopBtn
                 anchors.left: parent.left
@@ -59,6 +62,16 @@ Item {
                 anchors.rightMargin: 0
                 anchors.leftMargin: 0
                 onClicked: stopCommand()
+            }
+
+            Button {
+                id: testBtn
+                anchors.left: parent.left
+                anchors.right: parent.right
+                text: qsTr("Öntesztelés")
+                anchors.rightMargin: 0
+                anchors.leftMargin: 0
+                onClicked: robotTestCommand()
             }
         }
     }
@@ -77,6 +90,7 @@ Item {
 
         // Oszlopba rendezett további elemek
         ColumnLayout {
+            transformOrigin: Item.Center
             // Felfelé, lefelé és balra a szülő széléhez illeszkedik. Jobbra nem, mert
             //  széthúzni felesleges őket.
             anchors.top: parent.top
@@ -94,6 +108,10 @@ Item {
             Text { text: " A: " + (currentState!=null ? currentState.a.toFixed(3) : "?") }
             Text { text: " G: " + historyGraphGyro1[historyGraphGyro1.length-1]+","+historyGraphGyro2[historyGraphGyro2.length-1]  }
             Text { text: " Lámpa: " + (currentState!=null ? currentState.light.toString() : "?") }
+            Text { text: " Hiba: " + (currentState!=null ? currentState.error.toString() : "?") }
+
+
+
 
             GroupBox {
                 id: groupBox1
@@ -125,6 +143,7 @@ Item {
                     graphGyro2: historyGraphGyro2
                 }
             }
+
         }
     }
 

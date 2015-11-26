@@ -44,3 +44,11 @@ void RobotProxy::stop()
     communication.send(newState);
     qDebug() << "Stop parancs elküldve.";
 }
+
+void RobotProxy::selfTest()
+{
+    RobotState newState;
+    newState.setStatus(RobotState::Status::SelfTest);
+    communication.send(newState);
+    qDebug() << "Öntesztelési parancs kérelem elküldve.";
+}

@@ -11,6 +11,7 @@ MainWindowsEventHandling::MainWindowsEventHandling(
     : robot(robot), qmlContext(qmlContext), history(history)
 {
     QObject::connect(&history, SIGNAL(historyChanged()), this, SLOT(historyChanged()));
+
 }
 
 void MainWindowsEventHandling::accelerateCommand()
@@ -27,6 +28,14 @@ void MainWindowsEventHandling::resetCommand()
 {
     robot.reset();
 }
+
+
+void MainWindowsEventHandling::robotTestCommand()
+{
+    robot.reset();
+    robot.selfTest();
+}
+
 void MainWindowsEventHandling::historyChanged()
 {
     // Ahhoz, hogy frissüljenek a QML oldali adatok, frissíteni kell a változók összekapcsolását.

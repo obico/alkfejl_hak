@@ -9,8 +9,8 @@ RobotState::RobotState()
 }
 
 RobotState::RobotState(Status status, qint64 timestamp,
-    float x, float v, float a,QVector<int> g, qint8 light)
-    : _status(status), _timestamp(timestamp), _x(x), _v(v), _a(a), _g(g), _light(light)
+    float x, float v, float a,QVector<int> g, qint8 light, QString error)
+    : _status(status), _timestamp(timestamp), _x(x), _v(v), _a(a), _g(g), _light(light), _error(error)
 {
     initStatusNames();
 }
@@ -24,6 +24,9 @@ void RobotState::initStatusNames()
         statusNames[(int)Status::Default] = QString("Alap");
         statusNames[(int)Status::Reset] = QString("Reset");
         statusNames[(int)Status::Stopping] = QString("Megállás");
+        statusNames[(int)Status::Error] = QString("Error");
+        statusNames[(int)Status::SelfTest] = QString("Öntesztelés");
+
     }
 }
 
@@ -43,6 +46,7 @@ void RobotState::WriteTo(QDataStream& stream) const
     stream << _a;
     stream << _g;
     stream << _light;
+    stream << _error;
 
 }
 
@@ -57,6 +61,7 @@ void RobotState::ReadFrom(QDataStream& stream)
     stream >> _a;
     stream >> _g;
     stream >> _light;
+    stream >> _error;
 }
 
 void RobotState::CopyFrom(const RobotState &other)
@@ -68,6 +73,7 @@ void RobotState::CopyFrom(const RobotState &other)
     _a = other._a;
     _g = other._g;
     _light = other._light;
+    _error = other._error;
 }
 
 QDataStream &operator<<(QDataStream& stream, const RobotState& state)

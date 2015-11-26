@@ -30,6 +30,11 @@ public:
      */
     void start(float intervalSec);
 
+    /** Elindítja a robot öntesztelését.
+     * @param intervalSec   A szimulátor öntesztelésének periódusideje.
+     */
+    //void robotTest(float intervalSec);
+
 private:
     /** Belső szerver a kommunikációhoz. */
     CommunicationTcpSocketServer communication;
@@ -47,6 +52,10 @@ private slots:
     /** A timer hívja meg, meghatározza a robot
      * állapotát a következő időpillanatban. */
     void tick();
+
+    /** A robot öntesztelőjének timerje hívja meg, meghatározza a robot
+     * állapotát a következő időpillanatban. */
+    //void testTick();
 
     /** Új üzenet fogadását jelzi. */
     void dataReady(QDataStream& inputStream);

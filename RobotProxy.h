@@ -44,6 +44,11 @@ public:
      */
     void stop();
 
+    /**
+     * @brief Öntesztelési parancs a robotnak.
+     */
+    void selfTest();
+
 public slots:
     /**
      * Akkor hívódik, ha új állapot érkezett a robottól.
