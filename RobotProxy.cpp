@@ -3,6 +3,7 @@
 #include "Communication/Communication.h"
 #include "RobotState.h"
 
+
 RobotProxy::RobotProxy(RobotStateHistory& history, Communication &communication)
     : history(history), communication(communication)
 {

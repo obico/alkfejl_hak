@@ -9,6 +9,7 @@
 #include "Communication/CommunicationTcpSocketClient.h"
 #include "RobotStateHistory.h"
 
+
 /**
  * @brief Alkalmazás osztály. A main() példányosítja és indítja el.
  *

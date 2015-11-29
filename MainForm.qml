@@ -3,6 +3,7 @@ import QtQuick.Controls 1.3
 import QtQuick.Layouts 1.1
 
 Item {
+    id: item1
     width: 500
     height: 500
     anchors.fill: parent
@@ -134,8 +135,9 @@ Item {
 
     GroupBox {
         id: groupBox1
-        width: 360
         height: 300
+        anchors.left: parent.left
+        anchors.leftMargin: 407
         anchors.top: parent.top
         anchors.right: parent.right
         anchors.bottomMargin: 30
@@ -143,9 +145,10 @@ Item {
 
         VectorGraph {
             id: vectorGraph
-            x: 0
             width: 200
             height: 200
+            anchors.left: parent.left
+            anchors.leftMargin: 0
             // Az objectName akkor jó, ha C++ oldalról kell megkeresnünk egy QML oldalon definiált
             //  objektumot a findChild metódus rekurzív hívásaival.
             objectName: "vectorGraph"
