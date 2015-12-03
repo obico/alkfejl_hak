@@ -1,0 +1,147 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Simple Telemetry Visualizer: C:/Users/Felhasználó/alkfejl_hak/RobotStateHistory.h Forrásfájl</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Simple Telemetry Visualizer
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Készítette Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Keresés');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Főoldal</span></a></li>
+      <li><a href="pages.html"><span>Kapcsolódó&#160;lapok</span></a></li>
+      <li><a href="modules.html"><span>Modulok</span></a></li>
+      <li><a href="annotated.html"><span>Osztályok</span></a></li>
+      <li class="current"><a href="files.html"><span>Fájl</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Keresés" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Fájllista</span></a></li>
+      <li><a href="globals.html"><span>Fájlelemek</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/Felhasználó/alkfejl_hak/RobotStateHistory.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_robot_state_history_8h.html">Ugrás a fájl dokumentációjához.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef ROBOTSTATEHISTORY_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="_robot_state_history_8h.html#ab9f4e1a6eaf06f7eb0926cf70611e0ff">    3</a></span>&#160;<span class="preprocessor">#define ROBOTSTATEHISTORY_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QtCore&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;memory&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;<span class="preprocessor">#include &lt;vector&gt;</span></div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="_robot_state_8h.html">RobotState.h</a>&quot;</span></div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;</div>
+<div class="line"><a name="l00013"></a><span class="lineno"><a class="line" href="class_robot_state_history.html">   13</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_robot_state_history.html">RobotStateHistory</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;{</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00016"></a><span class="lineno">   16</span>&#160;</div>
+<div class="line"><a name="l00017"></a><span class="lineno">   17</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00021"></a><span class="lineno">   21</span>&#160;    <a class="code" href="class_robot_state_history.html#aa39329cdbc54f074aac6d6670a1a6412">RobotStateHistory</a>();</div>
+<div class="line"><a name="l00022"></a><span class="lineno">   22</span>&#160;    <span class="keyword">virtual</span> <a class="code" href="class_robot_state_history.html#a9a57af7dcd7db519e5fc0a2e757146c0">~RobotStateHistory</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00023"></a><span class="lineno">   23</span>&#160;</div>
+<div class="line"><a name="l00031"></a><span class="lineno"><a class="line" href="class_robot_state_history.html#a27274c16a06589a93ad0f3087a0fde82">   31</a></span>&#160;    QList&lt;QObject*&gt; <a class="code" href="class_robot_state_history.html#a27274c16a06589a93ad0f3087a0fde82">stateList</a>;</div>
+<div class="line"><a name="l00032"></a><span class="lineno">   32</span>&#160;</div>
+<div class="line"><a name="l00034"></a><span class="lineno"><a class="line" href="class_robot_state_history.html#a3ceaeb54662f7fbf41696d67d22c9791">   34</a></span>&#160;    <a class="code" href="class_robot_state.html">RobotState</a> *<a class="code" href="class_robot_state_history.html#a3ceaeb54662f7fbf41696d67d22c9791">currentState</a>;</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno"><a class="line" href="class_robot_state_history.html#a034bc153debc1a7a6693f43b206f9cf8">   37</a></span>&#160;    std::vector&lt;std::unique_ptr&lt;RobotState&gt;&gt; <a class="code" href="class_robot_state_history.html#a034bc153debc1a7a6693f43b206f9cf8">container</a>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00040"></a><span class="lineno">   40</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_robot_state_history.html#a63f559e1f4b7d705e81afd9627115648">Add</a>(<span class="keyword">const</span> <a class="code" href="class_robot_state.html">RobotState</a>&amp; state);</div>
+<div class="line"><a name="l00041"></a><span class="lineno">   41</span>&#160;</div>
+<div class="line"><a name="l00047"></a><span class="lineno"><a class="line" href="group___t_xC3_xA1rol_xC3_xB3k.html#ga4ee9f507a262a4dbb1fa5c31f83a1acc">   47</a></span>&#160;    QList&lt;int&gt; <a class="code" href="group___t_xC3_xA1rol_xC3_xB3k.html#ga4ee9f507a262a4dbb1fa5c31f83a1acc">graphTimestamps</a>;</div>
+<div class="line"><a name="l00048"></a><span class="lineno"><a class="line" href="group___t_xC3_xA1rol_xC3_xB3k.html#ga39f1e8ce556daceb1c0893c8a839a045">   48</a></span>&#160;    QList&lt;int&gt; <a class="code" href="group___t_xC3_xA1rol_xC3_xB3k.html#ga39f1e8ce556daceb1c0893c8a839a045">graphVelocities</a>;</div>
+<div class="line"><a name="l00049"></a><span class="lineno"><a class="line" href="group___t_xC3_xA1rol_xC3_xB3k.html#ga800668782cf2aef6fa43a64a6a9d9535">   49</a></span>&#160;    QList&lt;int&gt; <a class="code" href="group___t_xC3_xA1rol_xC3_xB3k.html#ga800668782cf2aef6fa43a64a6a9d9535">graphAcceleration</a>;</div>
+<div class="line"><a name="l00050"></a><span class="lineno"><a class="line" href="group___t_xC3_xA1rol_xC3_xB3k.html#ga2a11727f6c79a1e19dcb4eccbc42e95e">   50</a></span>&#160;    QList&lt;QVector&lt;int&gt; &gt; <a class="code" href="group___t_xC3_xA1rol_xC3_xB3k.html#ga2a11727f6c79a1e19dcb4eccbc42e95e">graphGyro</a>;</div>
+<div class="line"><a name="l00054"></a><span class="lineno"><a class="line" href="class_robot_state_history.html#aff488b6bebfe15920b8bc61b9ba2eb6e">   54</a></span>&#160;    <span class="keyword">const</span> <span class="keywordtype">int</span> <a class="code" href="class_robot_state_history.html#aff488b6bebfe15920b8bc61b9ba2eb6e">shownStateNumber</a> = 20;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;signals:</div>
+<div class="line"><a name="l00058"></a><span class="lineno">   58</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_robot_state_history.html#a8cbccac0f660e5d4265eb206d57eae17">historyChanged</a>();</div>
+<div class="line"><a name="l00059"></a><span class="lineno">   59</span>&#160;};</div>
+<div class="line"><a name="l00060"></a><span class="lineno">   60</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;<span class="preprocessor">#endif // ROBOTSTATEHISTORY_H</span></div>
+<div class="ttc" id="class_robot_state_history_html_a63f559e1f4b7d705e81afd9627115648"><div class="ttname"><a href="class_robot_state_history.html#a63f559e1f4b7d705e81afd9627115648">RobotStateHistory::Add</a></div><div class="ttdeci">void Add(const RobotState &amp;state)</div><div class="ttdef"><b>Definition:</b> RobotStateHistory.cpp:9</div></div>
+<div class="ttc" id="class_robot_state_html"><div class="ttname"><a href="class_robot_state.html">RobotState</a></div><div class="ttdoc">A robot teljes állapotleírása le egy adott időpillanatban. </div><div class="ttdef"><b>Definition:</b> RobotState.h:23</div></div>
+<div class="ttc" id="group___t_xC3_xA1rol_xC3_xB3k_html_ga39f1e8ce556daceb1c0893c8a839a045"><div class="ttname"><a href="group___t_xC3_xA1rol_xC3_xB3k.html#ga39f1e8ce556daceb1c0893c8a839a045">RobotStateHistory::graphVelocities</a></div><div class="ttdeci">QList&lt; int &gt; graphVelocities</div><div class="ttdef"><b>Definition:</b> RobotStateHistory.h:48</div></div>
+<div class="ttc" id="class_robot_state_history_html_aff488b6bebfe15920b8bc61b9ba2eb6e"><div class="ttname"><a href="class_robot_state_history.html#aff488b6bebfe15920b8bc61b9ba2eb6e">RobotStateHistory::shownStateNumber</a></div><div class="ttdeci">const int shownStateNumber</div><div class="ttdef"><b>Definition:</b> RobotStateHistory.h:54</div></div>
+<div class="ttc" id="group___t_xC3_xA1rol_xC3_xB3k_html_ga4ee9f507a262a4dbb1fa5c31f83a1acc"><div class="ttname"><a href="group___t_xC3_xA1rol_xC3_xB3k.html#ga4ee9f507a262a4dbb1fa5c31f83a1acc">RobotStateHistory::graphTimestamps</a></div><div class="ttdeci">QList&lt; int &gt; graphTimestamps</div><div class="ttdef"><b>Definition:</b> RobotStateHistory.h:47</div></div>
+<div class="ttc" id="class_robot_state_history_html_a8cbccac0f660e5d4265eb206d57eae17"><div class="ttname"><a href="class_robot_state_history.html#a8cbccac0f660e5d4265eb206d57eae17">RobotStateHistory::historyChanged</a></div><div class="ttdeci">void historyChanged()</div></div>
+<div class="ttc" id="class_robot_state_history_html_a9a57af7dcd7db519e5fc0a2e757146c0"><div class="ttname"><a href="class_robot_state_history.html#a9a57af7dcd7db519e5fc0a2e757146c0">RobotStateHistory::~RobotStateHistory</a></div><div class="ttdeci">virtual ~RobotStateHistory()=default</div></div>
+<div class="ttc" id="group___t_xC3_xA1rol_xC3_xB3k_html_ga800668782cf2aef6fa43a64a6a9d9535"><div class="ttname"><a href="group___t_xC3_xA1rol_xC3_xB3k.html#ga800668782cf2aef6fa43a64a6a9d9535">RobotStateHistory::graphAcceleration</a></div><div class="ttdeci">QList&lt; int &gt; graphAcceleration</div><div class="ttdef"><b>Definition:</b> RobotStateHistory.h:49</div></div>
+<div class="ttc" id="class_robot_state_history_html"><div class="ttname"><a href="class_robot_state_history.html">RobotStateHistory</a></div><div class="ttdoc">Visszamenőleg tárolja a robot állapotait, valamint innen lehet lekérdezni a legutóbbi érvényes állapo...</div><div class="ttdef"><b>Definition:</b> RobotStateHistory.h:13</div></div>
+<div class="ttc" id="_robot_state_8h_html"><div class="ttname"><a href="_robot_state_8h.html">RobotState.h</a></div></div>
+<div class="ttc" id="class_robot_state_history_html_a3ceaeb54662f7fbf41696d67d22c9791"><div class="ttname"><a href="class_robot_state_history.html#a3ceaeb54662f7fbf41696d67d22c9791">RobotStateHistory::currentState</a></div><div class="ttdeci">RobotState * currentState</div><div class="ttdef"><b>Definition:</b> RobotStateHistory.h:34</div></div>
+<div class="ttc" id="class_robot_state_history_html_aa39329cdbc54f074aac6d6670a1a6412"><div class="ttname"><a href="class_robot_state_history.html#aa39329cdbc54f074aac6d6670a1a6412">RobotStateHistory::RobotStateHistory</a></div><div class="ttdeci">RobotStateHistory()</div><div class="ttdoc">Konstruktor. </div><div class="ttdef"><b>Definition:</b> RobotStateHistory.cpp:4</div></div>
+<div class="ttc" id="class_robot_state_history_html_a034bc153debc1a7a6693f43b206f9cf8"><div class="ttname"><a href="class_robot_state_history.html#a034bc153debc1a7a6693f43b206f9cf8">RobotStateHistory::container</a></div><div class="ttdeci">std::vector&lt; std::unique_ptr&lt; RobotState &gt; &gt; container</div><div class="ttdef"><b>Definition:</b> RobotStateHistory.h:37</div></div>
+<div class="ttc" id="class_robot_state_history_html_a27274c16a06589a93ad0f3087a0fde82"><div class="ttname"><a href="class_robot_state_history.html#a27274c16a06589a93ad0f3087a0fde82">RobotStateHistory::stateList</a></div><div class="ttdeci">QList&lt; QObject * &gt; stateList</div><div class="ttdef"><b>Definition:</b> RobotStateHistory.h:31</div></div>
+<div class="ttc" id="group___t_xC3_xA1rol_xC3_xB3k_html_ga2a11727f6c79a1e19dcb4eccbc42e95e"><div class="ttname"><a href="group___t_xC3_xA1rol_xC3_xB3k.html#ga2a11727f6c79a1e19dcb4eccbc42e95e">RobotStateHistory::graphGyro</a></div><div class="ttdeci">QList&lt; QVector&lt; int &gt; &gt; graphGyro</div><div class="ttdef"><b>Definition:</b> RobotStateHistory.h:50</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Készítette &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>

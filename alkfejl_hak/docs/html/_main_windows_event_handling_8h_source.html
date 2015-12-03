@@ -1,0 +1,160 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=9"/>
+<meta name="generator" content="Doxygen 1.8.10"/>
+<title>Simple Telemetry Visualizer: C:/Users/Felhasználó/alkfejl_hak/MainWindowsEventHandling.h Forrásfájl</title>
+<link href="tabs.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="jquery.js"></script>
+<script type="text/javascript" src="dynsections.js"></script>
+<link href="search/search.css" rel="stylesheet" type="text/css"/>
+<script type="text/javascript" src="search/searchdata.js"></script>
+<script type="text/javascript" src="search/search.js"></script>
+<script type="text/javascript">
+  $(document).ready(function() { init_search(); });
+</script>
+<link href="doxygen.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+<div id="top"><!-- do not remove this div, it is closed by doxygen! -->
+<div id="titlearea">
+<table cellspacing="0" cellpadding="0">
+ <tbody>
+ <tr style="height: 56px;">
+  <td id="projectalign" style="padding-left: 0.5em;">
+   <div id="projectname">Simple Telemetry Visualizer
+   </div>
+  </td>
+ </tr>
+ </tbody>
+</table>
+</div>
+<!-- end header part -->
+<!-- Készítette Doxygen 1.8.10 -->
+<script type="text/javascript">
+var searchBox = new SearchBox("searchBox", "search",false,'Keresés');
+</script>
+  <div id="navrow1" class="tabs">
+    <ul class="tablist">
+      <li><a href="index.html"><span>Főoldal</span></a></li>
+      <li><a href="pages.html"><span>Kapcsolódó&#160;lapok</span></a></li>
+      <li><a href="modules.html"><span>Modulok</span></a></li>
+      <li><a href="annotated.html"><span>Osztályok</span></a></li>
+      <li class="current"><a href="files.html"><span>Fájl</span></a></li>
+      <li>
+        <div id="MSearchBox" class="MSearchBoxInactive">
+        <span class="left">
+          <img id="MSearchSelect" src="search/mag_sel.png"
+               onmouseover="return searchBox.OnSearchSelectShow()"
+               onmouseout="return searchBox.OnSearchSelectHide()"
+               alt=""/>
+          <input type="text" id="MSearchField" value="Keresés" accesskey="S"
+               onfocus="searchBox.OnSearchFieldFocus(true)" 
+               onblur="searchBox.OnSearchFieldFocus(false)" 
+               onkeyup="searchBox.OnSearchFieldChange(event)"/>
+          </span><span class="right">
+            <a id="MSearchClose" href="javascript:searchBox.CloseResultsWindow()"><img id="MSearchCloseImg" border="0" src="search/close.png" alt=""/></a>
+          </span>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div id="navrow2" class="tabs2">
+    <ul class="tablist">
+      <li><a href="files.html"><span>Fájllista</span></a></li>
+      <li><a href="globals.html"><span>Fájlelemek</span></a></li>
+    </ul>
+  </div>
+</div><!-- top -->
+<!-- window showing the filter options -->
+<div id="MSearchSelectWindow"
+     onmouseover="return searchBox.OnSearchSelectShow()"
+     onmouseout="return searchBox.OnSearchSelectHide()"
+     onkeydown="return searchBox.OnSearchSelectKey(event)">
+</div>
+
+<!-- iframe showing the search results (closed by default) -->
+<div id="MSearchResultsWindow">
+<iframe src="javascript:void(0)" frameborder="0" 
+        name="MSearchResults" id="MSearchResults">
+</iframe>
+</div>
+
+<div class="header">
+  <div class="headertitle">
+<div class="title">C:/Users/Felhasználó/alkfejl_hak/MainWindowsEventHandling.h</div>  </div>
+</div><!--header-->
+<div class="contents">
+<a href="_main_windows_event_handling_8h.html">Ugrás a fájl dokumentációjához.</a><div class="fragment"><div class="line"><a name="l00001"></a><span class="lineno">    1</span>&#160;<span class="preprocessor">#pragma once</span></div>
+<div class="line"><a name="l00002"></a><span class="lineno">    2</span>&#160;<span class="preprocessor">#ifndef MAINWINDOWSEVENTHANDLING_H</span></div>
+<div class="line"><a name="l00003"></a><span class="lineno"><a class="line" href="_main_windows_event_handling_8h.html#ad336f73cb140715d82428a00623f6864">    3</a></span>&#160;<span class="preprocessor">#define MAINWINDOWSEVENTHANDLING_H</span></div>
+<div class="line"><a name="l00004"></a><span class="lineno">    4</span>&#160;<span class="preprocessor">#include &lt;QObject&gt;</span></div>
+<div class="line"><a name="l00005"></a><span class="lineno">    5</span>&#160;<span class="preprocessor">#include &lt;QDebug&gt;</span></div>
+<div class="line"><a name="l00006"></a><span class="lineno">    6</span>&#160;</div>
+<div class="line"><a name="l00007"></a><span class="lineno">    7</span>&#160;<span class="keyword">class </span><a class="code" href="class_robot_proxy.html">RobotProxy</a>;</div>
+<div class="line"><a name="l00008"></a><span class="lineno">    8</span>&#160;<span class="keyword">class </span>QQmlContext;</div>
+<div class="line"><a name="l00009"></a><span class="lineno">    9</span>&#160;<span class="keyword">class </span><a class="code" href="class_robot_state_history.html">RobotStateHistory</a>;</div>
+<div class="line"><a name="l00010"></a><span class="lineno">   10</span>&#160;</div>
+<div class="line"><a name="l00011"></a><span class="lineno">   11</span>&#160;<span class="keyword">class </span>QQuickItem;</div>
+<div class="line"><a name="l00012"></a><span class="lineno">   12</span>&#160;<span class="keyword">class </span>QQmlApplicationEngine;</div>
+<div class="line"><a name="l00013"></a><span class="lineno">   13</span>&#160;</div>
+<div class="line"><a name="l00014"></a><span class="lineno">   14</span>&#160;</div>
+<div class="line"><a name="l00015"></a><span class="lineno">   15</span>&#160;</div>
+<div class="line"><a name="l00025"></a><span class="lineno"><a class="line" href="class_main_windows_event_handling.html">   25</a></span>&#160;<span class="keyword">class </span><a class="code" href="class_main_windows_event_handling.html">MainWindowsEventHandling</a> : <span class="keyword">public</span> QObject</div>
+<div class="line"><a name="l00026"></a><span class="lineno">   26</span>&#160;{</div>
+<div class="line"><a name="l00027"></a><span class="lineno">   27</span>&#160;    Q_OBJECT</div>
+<div class="line"><a name="l00028"></a><span class="lineno">   28</span>&#160;</div>
+<div class="line"><a name="l00029"></a><span class="lineno">   29</span>&#160;<span class="keyword">public</span>:</div>
+<div class="line"><a name="l00035"></a><span class="lineno">   35</span>&#160;    <a class="code" href="class_main_windows_event_handling.html#a3bff792b78f5ac6762547d03b3d8ddde">MainWindowsEventHandling</a>(<a class="code" href="class_robot_proxy.html">RobotProxy</a>&amp; robot, QQmlContext &amp;qmlContext, <a class="code" href="class_robot_state_history.html">RobotStateHistory</a> &amp;history);</div>
+<div class="line"><a name="l00036"></a><span class="lineno">   36</span>&#160;</div>
+<div class="line"><a name="l00037"></a><span class="lineno">   37</span>&#160;    <a class="code" href="class_main_windows_event_handling.html#a115bb94592f9b3ef188f70b037c48377">~MainWindowsEventHandling</a>() = <span class="keywordflow">default</span>;</div>
+<div class="line"><a name="l00038"></a><span class="lineno">   38</span>&#160;</div>
+<div class="line"><a name="l00042"></a><span class="lineno">   42</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_windows_event_handling.html#a599460ada95580017990387c5443df81">ConnectQmlSignals</a>(QObject *rootObject);</div>
+<div class="line"><a name="l00043"></a><span class="lineno">   43</span>&#160;</div>
+<div class="line"><a name="l00044"></a><span class="lineno">   44</span>&#160;<span class="keyword">public</span> slots:</div>
+<div class="line"><a name="l00046"></a><span class="lineno">   46</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_windows_event_handling.html#aec8ca08322fea6c3a784d293ab129ad1">accelerateCommand</a>();</div>
+<div class="line"><a name="l00047"></a><span class="lineno">   47</span>&#160;</div>
+<div class="line"><a name="l00049"></a><span class="lineno">   49</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_windows_event_handling.html#a78fcfb28cbb400d7121bff00ac629e0d">stopCommand</a>();</div>
+<div class="line"><a name="l00050"></a><span class="lineno">   50</span>&#160;</div>
+<div class="line"><a name="l00052"></a><span class="lineno">   52</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_windows_event_handling.html#a49e838a2a03b7ec140d719c3ca51aa2c">resetCommand</a>();</div>
+<div class="line"><a name="l00053"></a><span class="lineno">   53</span>&#160;</div>
+<div class="line"><a name="l00055"></a><span class="lineno">   55</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_windows_event_handling.html#a30e493bd7fbaf1f7029475739c720434">robotTestCommand</a>();</div>
+<div class="line"><a name="l00056"></a><span class="lineno">   56</span>&#160;</div>
+<div class="line"><a name="l00061"></a><span class="lineno">   61</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_windows_event_handling.html#a100f744879416c70f6ef324cb77267a8">historyChanged</a>();</div>
+<div class="line"><a name="l00062"></a><span class="lineno">   62</span>&#160;</div>
+<div class="line"><a name="l00063"></a><span class="lineno">   63</span>&#160;signals:</div>
+<div class="line"><a name="l00067"></a><span class="lineno">   67</span>&#160;    <span class="keywordtype">void</span> <a class="code" href="class_main_windows_event_handling.html#a6c1a8018a7bc2e7f7714fec24e16cad5">historyContextUpdated</a>();</div>
+<div class="line"><a name="l00068"></a><span class="lineno">   68</span>&#160;</div>
+<div class="line"><a name="l00069"></a><span class="lineno">   69</span>&#160;<span class="keyword">private</span>:</div>
+<div class="line"><a name="l00071"></a><span class="lineno">   71</span>&#160;    <a class="code" href="class_robot_proxy.html">RobotProxy</a>&amp; robot;</div>
+<div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;    QQmlContext &amp;qmlContext;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;    <a class="code" href="class_robot_state_history.html">RobotStateHistory</a> &amp;history;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;    <span class="keyword">static</span> QQuickItem* FindItemByName(QObject *rootObject, <span class="keyword">const</span> QString&amp; name);</div>
+<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;    <span class="keyword">static</span> QQuickItem* FindItemByName(QList&lt;QObject*&gt; nodes, <span class="keyword">const</span> QString&amp; name);</div>
+<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;};</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;<span class="preprocessor">#endif // MAINWINDOWSEVENTHANDLING_H</span></div>
+<div class="ttc" id="class_main_windows_event_handling_html_a6c1a8018a7bc2e7f7714fec24e16cad5"><div class="ttname"><a href="class_main_windows_event_handling.html#a6c1a8018a7bc2e7f7714fec24e16cad5">MainWindowsEventHandling::historyContextUpdated</a></div><div class="ttdeci">void historyContextUpdated()</div></div>
+<div class="ttc" id="class_main_windows_event_handling_html_a115bb94592f9b3ef188f70b037c48377"><div class="ttname"><a href="class_main_windows_event_handling.html#a115bb94592f9b3ef188f70b037c48377">MainWindowsEventHandling::~MainWindowsEventHandling</a></div><div class="ttdeci">~MainWindowsEventHandling()=default</div></div>
+<div class="ttc" id="class_main_windows_event_handling_html_a49e838a2a03b7ec140d719c3ca51aa2c"><div class="ttname"><a href="class_main_windows_event_handling.html#a49e838a2a03b7ec140d719c3ca51aa2c">MainWindowsEventHandling::resetCommand</a></div><div class="ttdeci">void resetCommand()</div><div class="ttdef"><b>Definition:</b> MainWindowsEventHandling.cpp:27</div></div>
+<div class="ttc" id="class_main_windows_event_handling_html_a30e493bd7fbaf1f7029475739c720434"><div class="ttname"><a href="class_main_windows_event_handling.html#a30e493bd7fbaf1f7029475739c720434">MainWindowsEventHandling::robotTestCommand</a></div><div class="ttdeci">void robotTestCommand()</div><div class="ttdef"><b>Definition:</b> MainWindowsEventHandling.cpp:33</div></div>
+<div class="ttc" id="class_main_windows_event_handling_html_a100f744879416c70f6ef324cb77267a8"><div class="ttname"><a href="class_main_windows_event_handling.html#a100f744879416c70f6ef324cb77267a8">MainWindowsEventHandling::historyChanged</a></div><div class="ttdeci">void historyChanged()</div><div class="ttdef"><b>Definition:</b> MainWindowsEventHandling.cpp:39</div></div>
+<div class="ttc" id="class_robot_proxy_html"><div class="ttname"><a href="class_robot_proxy.html">RobotProxy</a></div><div class="ttdoc">A robot proxyja. </div><div class="ttdef"><b>Definition:</b> RobotProxy.h:25</div></div>
+<div class="ttc" id="class_main_windows_event_handling_html_aec8ca08322fea6c3a784d293ab129ad1"><div class="ttname"><a href="class_main_windows_event_handling.html#aec8ca08322fea6c3a784d293ab129ad1">MainWindowsEventHandling::accelerateCommand</a></div><div class="ttdeci">void accelerateCommand()</div><div class="ttdef"><b>Definition:</b> MainWindowsEventHandling.cpp:17</div></div>
+<div class="ttc" id="class_main_windows_event_handling_html_a78fcfb28cbb400d7121bff00ac629e0d"><div class="ttname"><a href="class_main_windows_event_handling.html#a78fcfb28cbb400d7121bff00ac629e0d">MainWindowsEventHandling::stopCommand</a></div><div class="ttdeci">void stopCommand()</div><div class="ttdef"><b>Definition:</b> MainWindowsEventHandling.cpp:22</div></div>
+<div class="ttc" id="class_robot_state_history_html"><div class="ttname"><a href="class_robot_state_history.html">RobotStateHistory</a></div><div class="ttdoc">Visszamenőleg tárolja a robot állapotait, valamint innen lehet lekérdezni a legutóbbi érvényes állapo...</div><div class="ttdef"><b>Definition:</b> RobotStateHistory.h:13</div></div>
+<div class="ttc" id="class_main_windows_event_handling_html_a599460ada95580017990387c5443df81"><div class="ttname"><a href="class_main_windows_event_handling.html#a599460ada95580017990387c5443df81">MainWindowsEventHandling::ConnectQmlSignals</a></div><div class="ttdeci">void ConnectQmlSignals(QObject *rootObject)</div><div class="ttdef"><b>Definition:</b> MainWindowsEventHandling.cpp:96</div></div>
+<div class="ttc" id="class_main_windows_event_handling_html"><div class="ttname"><a href="class_main_windows_event_handling.html">MainWindowsEventHandling</a></div><div class="ttdoc">Ez az osztály tartalmazza a felhasználó felület (GUI) eseménykezelőit. </div><div class="ttdef"><b>Definition:</b> MainWindowsEventHandling.h:25</div></div>
+<div class="ttc" id="class_main_windows_event_handling_html_a3bff792b78f5ac6762547d03b3d8ddde"><div class="ttname"><a href="class_main_windows_event_handling.html#a3bff792b78f5ac6762547d03b3d8ddde">MainWindowsEventHandling::MainWindowsEventHandling</a></div><div class="ttdeci">MainWindowsEventHandling(RobotProxy &amp;robot, QQmlContext &amp;qmlContext, RobotStateHistory &amp;history)</div><div class="ttdef"><b>Definition:</b> MainWindowsEventHandling.cpp:9</div></div>
+</div><!-- fragment --></div><!-- contents -->
+<!-- start footer part -->
+<hr class="footer"/><address class="footer"><small>
+Készítette &#160;<a href="http://www.doxygen.org/index.html">
+<img class="footer" src="doxygen.png" alt="doxygen"/>
+</a> 1.8.10
+</small></address>
+</body>
+</html>
