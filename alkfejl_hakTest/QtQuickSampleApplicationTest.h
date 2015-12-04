@@ -18,7 +18,7 @@ private slots:
     void RobotStateHistoryCleanSreenTest();
 
     /** @see RobotStateHistory visualize függvényének a tesztelése */
-    void RobotStateHistoryVisualizeTest();
+    /*void RobotStateHistoryVisualizeTest();*/
 };
 
 #endif // QTTEST_OTHER_FUNCTIONS_H

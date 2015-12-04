@@ -11,6 +11,7 @@ void RobotStateHistory::Add(const RobotState& state)
     // TODO Add history cleanup function!
     std::unique_ptr<RobotState> newState = std::make_unique<RobotState>();
     newState->CopyFrom(state);
+    //visualize();
     stateList.append(newState.get());
     currentState = (RobotState*)newState.get(); // This has to be done before moving ownership
     container.push_back(std::move(newState));
@@ -21,7 +22,6 @@ void RobotStateHistory::Add(const RobotState& state)
     //  nem támogatja a Qt metaobject rendszerét.)
     clearScreen();
 
-    //visualize();
 
     int graphStateNumber = stateList.size() < shownStateNumber ? stateList.size() : shownStateNumber;
     auto it = container.end()-graphStateNumber;
@@ -55,16 +55,7 @@ int RobotStateHistory::clearScreen()
 
 /*int RobotStateHistory::visualize()
 {
-    int graphStateNumber = stateList.size() < shownStateNumber ? stateList.size() : shownStateNumber;
-    auto it = container.end()-graphStateNumber;
-    for(;it!=container.end();++it)
-    {
-        RobotState *currentState = it->get();
-        graphTimestamps.append(currentState->timestamp());
-        graphGyro.append(currentState->g());
-        graphVelocities.append(currentState->v());
-        graphAcceleration.append(currentState->a());
-    }
+
 
     return 1;
 }*/
