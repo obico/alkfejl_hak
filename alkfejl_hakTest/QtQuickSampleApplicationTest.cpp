@@ -80,8 +80,8 @@ void QtQuickSampleApplicationTest::RobotStateHistoryCleanSreenTest()
     QVERIFY2(actual==1 , "Nem futott le a historyHasChanged függvény");
 }
 
-/*
-void QtQuickSampleApplicationTest::RobotStateHistoryVisualizeTest()
+
+/*void QtQuickSampleApplicationTest::RobotStateHistoryVisualizeTest()
 {
     // model init
     RobotStateHistoryTest model;
@@ -113,5 +113,5 @@ void QtQuickSampleApplicationTest::RobotStateHistoryVisualizeTest()
 
     // qtest
     QVERIFY2(actual==1 , "Nem futott le a historyHasChanged függvény");
-}
-*/
+}*/
+

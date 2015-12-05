@@ -22,7 +22,7 @@ int RobotStateHistoryTest::clearScreenTest(const RobotState& state)
 {
     Add(state);
     // 1-et ad vissza, ha lefutott
-    return visualize();
+    return visualize((int)2);
 }*/
 
 

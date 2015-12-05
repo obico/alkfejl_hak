@@ -11,7 +11,7 @@ void RobotStateHistory::Add(const RobotState& state)
     // TODO Add history cleanup function!
     std::unique_ptr<RobotState> newState = std::make_unique<RobotState>();
     newState->CopyFrom(state);
-    //visualize();
+
     stateList.append(newState.get());
     currentState = (RobotState*)newState.get(); // This has to be done before moving ownership
     container.push_back(std::move(newState));
@@ -27,11 +27,13 @@ void RobotStateHistory::Add(const RobotState& state)
     auto it = container.end()-graphStateNumber;
     for(;it!=container.end();++it)
     {
+        //visualize(it);
         RobotState *currentState = it->get();
         graphTimestamps.append(currentState->timestamp());
         graphGyro.append(currentState->g());
         graphVelocities.append(currentState->v());
         graphAcceleration.append(currentState->a());
+
     }
 
     // Jelezzük a history változását.
@@ -53,9 +55,13 @@ int RobotStateHistory::clearScreen()
     return 1;
 }
 
-/*int RobotStateHistory::visualize()
+/*int RobotStateHistory::visualize(auto it)
 {
-
+    RobotState *currentState = it->get();
+    graphTimestamps.append(currentState->timestamp());
+    graphGyro.append(currentState->g());
+    graphVelocities.append(currentState->v());
+    graphAcceleration.append(currentState->a());
 
     return 1;
 }*/
