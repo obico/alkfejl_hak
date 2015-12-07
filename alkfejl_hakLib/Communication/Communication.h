@@ -12,6 +12,12 @@
  * Példányosítás után a connectToDevice metódussal lehet a belső
  * adatfogadási streamet az eszközhöz csatlakoztatni.
 */
+
+/**
+ * @brief @see Jól megfigyelhető itt a FACADE design pattern. A facade egy egyszerűbben használható (vagy egyéb szempontból más) interfészt biztosít egy elfedett osztály, osztály halmaz vagy függvények felé.
+ * @see Nem csak ennél a Tcp-s headereknél is észrevehető ugyanez. A Communication osztályt elrejtjük, és a használandó függvényeket valósítjuk meg a többi osztályban. A facade tehát belül aggregál egy másik, összetettebb rendszert, vagy interfészt.
+ * @see A send() függvény rejti el a belső megvalósítást.
+ */
 class Communication : public QObject
 {
     Q_OBJECT
