@@ -13,10 +13,7 @@
  * @brief Soros port kommunikáció
  */
 
-/**
- * @brief @see Jól megfigyelhető itt a FACADE design pattern. A facade egy egyszerűbben használható (vagy egyéb szempontból más) interfészt biztosít egy elfedett osztály, osztály halmaz vagy függvények felé.
- * @see Nem csak ennél a Tcp-s headereknél is észrevehető ugyanez. A Communication osztályt elrejtük, és a használandó függvényeket valósítjuk meg ebben az osztályban. A facade tehát belül aggregál egy másik, összetettebb rendszert, vagy interfészt.
- */
+
 class CommunicationSerialPort : public Communication
 {
 public:
