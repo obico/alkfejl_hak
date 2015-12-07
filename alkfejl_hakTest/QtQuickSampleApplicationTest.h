@@ -11,13 +11,13 @@ public:
 
 private slots:
 
-    /** @see RobotStateHistory historyhaschanged függvényének a tesztelése */
+    /** @note RobotStateHistory historyhaschanged függvényének a tesztelése */
     void RobotStateHistoryHasChangedTest();
 
-    /** @see RobotStateHistory cleanscreen  függvényének tesztelése */
+    /** @note RobotStateHistory cleanscreen  függvényének tesztelése */
     void RobotStateHistoryCleanSreenTest();
 
-    /** @see RobotStateHistory visualize függvényének a tesztelése */
+    /** @note RobotStateHistory visualize függvényének a tesztelése */
     void RobotStateHistoryVisualizeTest();
 };
 
