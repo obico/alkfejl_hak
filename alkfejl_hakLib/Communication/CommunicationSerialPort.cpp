@@ -31,7 +31,8 @@ void CommunicationSerialPort::connect()
 
     // A foradási adatfolyam csatlakoztatása
     // (Ha volt korábbi, az most megszűnik a unique_ptr miatt.)
-    /** @note Unique pointer létrehozása, amelyet a soros porti kommunikáció elindítására használunk fel. */
+    /** @note Unique pointer létrehozása, amelyet a soros porti kommunikáció elindítására használunk fel. 
+    *   Azért használjuk, mert egyszerre fog megszűnni a mutatott objektummal. */
     receiveStream = std::make_unique<QDataStream>(&serialPort);
     QObject::connect(&serialPort, SIGNAL(readyRead()), this, SLOT(dataReceived()));
 
