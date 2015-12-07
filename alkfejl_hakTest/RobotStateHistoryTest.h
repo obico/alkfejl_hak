@@ -32,7 +32,7 @@ public:
     int clearScreenTest(const RobotState& state);
 
 
-    //int visualizeTest(const RobotState& state);
+    int visualizeTest(const RobotState& state);
 };
 
 

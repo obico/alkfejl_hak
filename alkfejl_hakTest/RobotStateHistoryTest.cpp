@@ -18,12 +18,12 @@ int RobotStateHistoryTest::clearScreenTest(const RobotState& state)
     return clearScreen();
 }
 
-/*int RobotStateHistoryTest::visualizeTest(const RobotState& state)
+int RobotStateHistoryTest::visualizeTest(const RobotState& state)
 {
     Add(state);
     // 1-et ad vissza, ha lefutott
-    return visualize((int)2);
-}*/
+    return visualize();
+}
 
 
 

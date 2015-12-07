@@ -46,7 +46,7 @@ public:
     int clearScreen();
 
     /** RobotStateHistory harmadik unit teszt függvénye - vizualizáció */
-    //int visualize(auto it);
+    int visualize();
 
 
     /** \addtogroup Tárolók a követlen megjelenítéshez.

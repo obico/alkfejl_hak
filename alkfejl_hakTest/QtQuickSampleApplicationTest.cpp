@@ -81,11 +81,12 @@ void QtQuickSampleApplicationTest::RobotStateHistoryCleanSreenTest()
 }
 
 
-/*void QtQuickSampleApplicationTest::RobotStateHistoryVisualizeTest()
+void QtQuickSampleApplicationTest::RobotStateHistoryVisualizeTest()
 {
     // model init
     RobotStateHistoryTest model;
     RobotState state;
+    auto it=0;
 
     // array feltöltése
     int arr[] = { 0,1 };
@@ -109,9 +110,10 @@ void QtQuickSampleApplicationTest::RobotStateHistoryCleanSreenTest()
     // state feltöltése a mintaadatokkal
     state.ReadFrom(stream);
 
-    int actual = model.visualizeTest(state);
+    int actual;
+    actual = model.visualizeTest(state);
 
     // qtest
     QVERIFY2(actual==1 , "Nem futott le a historyHasChanged függvény");
-}*/
+}
 
