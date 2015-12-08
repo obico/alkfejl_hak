@@ -20,6 +20,7 @@ HEADERS += \
     RobotStateHistoryTest.h \
     QtQuickSampleApplicationTest.h
 
+LIBS += -L$$OUT_PWD/../alkfejl_hakLib/ -lalkfejl_hakLib
 
-win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../alkfejl_hakLib/release/ -lalkfejl_hakLib
-else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../alkfejl_hakLib/debug/ -lalkfejl_hakLib
+# win32:CONFIG(release, debug|release): LIBS += -L$$OUT_PWD/../alkfejl_hakLib/release/ -lalkfejl_hakLib
+# else:win32:CONFIG(debug, debug|release): LIBS += -L$$OUT_PWD/../alkfejl_hakLib/debug/ -lalkfejl_hakLib
