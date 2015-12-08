@@ -41,7 +41,6 @@ void RobotStateHistory::Add(const RobotState& state)
         if (tmp->error() == "nincs hiba")
         {
             int graphStateNumber = visualize();
-            //int graphStateNumber = stateList.size() < shownStateNumber ? stateList.size() : shownStateNumber;
             auto it = container.end()-graphStateNumber;
             for(;it!=container.end();++it)
             {
