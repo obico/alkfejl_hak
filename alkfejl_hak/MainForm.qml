@@ -83,8 +83,6 @@ Item {
         title: "Pillanatnyi értékek"
         // Fent és jobbra kitölti a szülőt. Balról illeszkedik a
         //  parancsok GroupBox-ának jobb széléhez.
-        anchors.right: parent.right
-        anchors.rightMargin: 0
         anchors.left : commandsGB.right
         anchors.top : parent.top
 
@@ -138,6 +136,7 @@ Item {
         height: 300
         anchors.top: parent.top
         anchors.right: parent.right
+        anchors.left: currentValuesGB.right
         anchors.bottomMargin: 30
         title: qsTr("Gyroszkóp")
 
